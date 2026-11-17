@@ -1,0 +1,16 @@
+services: 
+  db:
+    image: mysql:8.0
+    container_name: rage-bank-db
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: rage_bank
+      MYSQL_USER: rage
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports: 
+      - "3307:3306"
+    volumes:
+      - bank-rage-db:/var/lib/mysql
+    restart: unless-stopped
+volumes:
+  bank-rage-db:

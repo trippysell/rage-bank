@@ -1,0 +1,19 @@
+{
+  "name": "rage-bank",
+  "version": "1.0.0",
+  "description": "rage-bank-project",
+  "repository": {
+    "type": "git",
+    "url": "project-bank"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10"
+  }
+}
