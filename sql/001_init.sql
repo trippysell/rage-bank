@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS bank_accounts;
 DROP TABLE IF EXISTS atms;
 DROP TABLE IF EXISTS characters;
@@ -27,4 +28,19 @@ CREATE TABLE bank_accounts (
     FOREIGN KEY (character_id) REFERENCES characters (id) ON DELETE RESTRICT,
     UNIQUE (character_id, bill_type),
     PRIMARY KEY(bill_id)
+);
+
+CREATE TABLE transactions (
+    transaction_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    sender_account_id INT UNSIGNED,
+    receiver_account_id INT UNSIGNED,
+    atm_id INT UNSIGNED,
+    amount BIGINT UNSIGNED NOT NULL CHECK (amount > 0),
+    transaction_type ENUM('deposit', 'withdraw', 'transfer') NOT NULL,
+    comment VARCHAR(120),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (sender_account_id) REFERENCES bank_accounts (bill_id) ON DELETE RESTRICT,
+    FOREIGN KEY (receiver_account_id) REFERENCES bank_accounts (bill_id) ON DELETE RESTRICT,
+    FOREIGN KEY (atm_id) REFERENCES atms (atm_id) ON DELETE RESTRICT,
+    PRIMARY KEY(transaction_id)
 );
