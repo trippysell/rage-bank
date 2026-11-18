@@ -1,0 +1,7 @@
+CREATE TABLE characters (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
+    cash BIGINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY(id)
+);

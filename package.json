@@ -2,9 +2,10 @@
   "name": "rage-bank",
   "version": "1.0.0",
   "description": "rage-bank-project",
+  "private": "true",
   "repository": {
     "type": "git",
-    "url": "project-bank"
+    "url": "git+https://github.com/trippysell/rage-bank"
   },
   "license": "ISC",
   "author": "",
